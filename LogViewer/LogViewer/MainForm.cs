@@ -30,6 +30,7 @@ namespace LogViewer
             RadPageViewStripElement stripElement = pageView.ViewElement as RadPageViewStripElement;
             RadPageViewPage page = new RadPageViewPage();
             page.Text = "Log File " + ++pagesCount;
+            page.Controls.Add(new RadPageControl());
             pageView.Pages.Add(page);
             pageView.SelectedPage = page;
             pageView.ViewElement.EnsureItemVisible(stripElement.NewItem);
@@ -68,9 +69,7 @@ namespace LogViewer
 
         private void radPageView1_PageRemoving(object sender, RadPageViewCancelEventArgs e)
         {
-            RadPageView pageView = sender as RadPageView;
-
-            if (pageView.SelectedPage.Text.Contains("*"))
+            if (e.Page.Text.Contains("*"))
             {
                 frmSavePath frm = new frmSavePath(txtFilePath.Text);
                 frm.ShowDialog();
@@ -82,6 +81,15 @@ namespace LogViewer
             int pages = radPageView1.Pages.Count;
             for (int i = 0; i < pages; i++)
                 radPageView1.Pages.RemoveAt(0);
+        }
+
+        private void radGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            RadGridView grd = sender as RadGridView;
+            var selectedCell = grd.CurrentCell;
+
+            if (selectedCell.ColumnIndex == 3)
+                RadMessageBox.Show(selectedCell.Text);
         }
     }
 }

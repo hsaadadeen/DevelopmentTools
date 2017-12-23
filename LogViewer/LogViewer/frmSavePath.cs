@@ -26,12 +26,12 @@ namespace LogViewer
                 string path = Path.Combine(Path.GetDirectoryName(txtPath.Text), txtFileNameFormat.Text);
                 SavedLogsLoader.SavedLogsDic.Add(txtKey.Text, path);
                 SavedLogsLoader.SaveLogPath(txtKey.Text);
-                MessageBox.Show("New path saved", "Saved Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RadMessageBox.Show("New path saved", "Saved Successfully", MessageBoxButtons.OK, RadMessageIcon.Info);
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error while saving", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RadMessageBox.Show(ex.Message, "Error while saving", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
         }
     }

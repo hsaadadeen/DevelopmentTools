@@ -70,6 +70,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadPageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RadPageControl.Designer.cs">
+      <DependentUpon>RadPageControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SavedLogsConfig.cs" />
     <Compile Include="frmSavePath.cs">
       <SubType>Form</SubType>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="frmSavePath.resx">
       <DependentUpon>frmSavePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RadPageControl.resx">
+      <DependentUpon>RadPageControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\LogViewer.BackEnd.Entities.NlogEntity.datasource" />
     <None Include="Properties\Settings.settings">

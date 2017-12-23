@@ -37,3 +37,4 @@ C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\Log
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.csproj.GenerateResource.Cache
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.exe.licenses
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.frmSavePath.resources
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.RadPageControl.resources

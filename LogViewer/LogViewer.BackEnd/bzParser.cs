@@ -12,16 +12,46 @@ namespace LogViewer.BackEnd
     {
         public object ParseLogFile(string path)
         {
-            string[] lines = System.IO.File.ReadAllLines(path);
+            List<string> lines = System.IO.File.ReadAllLines(path).ToList();
+            var validLines = lines.Where(r => r.Split('|').Count() >= 4).ToList();
 
-            return (from line in lines
-                select line.Split('|')
-                into lineSplits
-                where lineSplits.Count() >= 4
-                select new NlogEntity()
+            List<NlogEntity> logLines  = new List<NlogEntity>();
+
+            foreach (string line in validLines)
+            {
+                var lineSplits = line.Split('|');
+
+                if (lineSplits.Count() == 4)
                 {
-                    LogTime = Convert.ToDateTime(lineSplits[0]), Level = lineSplits[1], CallStack = lineSplits[2], Message = lineSplits[3]
-                }).ToList();
+                    var lineIndex = lines.IndexOf(line);
+                    var currIndex = lineIndex;
+                    while (currIndex < lines.Count && lines[lineIndex].Last() != '|')
+                    {
+                        lines[lineIndex] += "\n" + lines[++currIndex];
+                    }
+
+                    lineSplits = lines[lineIndex].Split('|');
+                    logLines.Add(new NlogEntity()
+                    {
+                        LogTime = Convert.ToDateTime(lineSplits[0]),
+                        Level = lineSplits[1],
+                        CallStack = lineSplits[2],
+                        Message = lineSplits[3]
+                    });
+                }
+                else
+                {
+                    logLines.Add(new NlogEntity()
+                    {
+                        LogTime = Convert.ToDateTime(lineSplits[0]),
+                        Level = lineSplits[1],
+                        CallStack = lineSplits[2],
+                        Message = lineSplits[3]
+                    });
+                }
+            }
+
+            return logLines;
         }
     }
 }
