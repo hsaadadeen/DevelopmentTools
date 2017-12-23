@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace LogViewer
 {
@@ -17,7 +18,22 @@ namespace LogViewer
 
             SavedLogsDic = new Dictionary<string, string>();
             foreach (SavedLogsConfigInstanceElement log in savedLogsConfig.Instances)
-                SavedLogsDic.Add(log.Key, log.Path);
+                SavedLogsDic.Add(log.Key, String.Format(log.Path, DateTime.Now));
+        }
+
+        public static void SaveLogPath(string key)
+        {
+            var xmlDoc = new XmlDocument();
+            xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+
+            var node = xmlDoc.CreateElement("add");
+            node.SetAttribute("key", key);
+            node.SetAttribute("path", SavedLogsDic[key]);
+
+            xmlDoc.SelectSingleNode("//SavedLogsPaths").AppendChild(node);
+            xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+
+            ConfigurationManager.RefreshSection("SavedLogsPaths");
         }
     }
 

@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn3 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.ConditionalFormattingObject conditionalFormattingObject7 = new Telerik.WinControls.UI.ConditionalFormattingObject();
-            Telerik.WinControls.UI.ConditionalFormattingObject conditionalFormattingObject8 = new Telerik.WinControls.UI.ConditionalFormattingObject();
-            Telerik.WinControls.UI.ConditionalFormattingObject conditionalFormattingObject9 = new Telerik.WinControls.UI.ConditionalFormattingObject();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.ConditionalFormattingObject conditionalFormattingObject1 = new Telerik.WinControls.UI.ConditionalFormattingObject();
+            Telerik.WinControls.UI.ConditionalFormattingObject conditionalFormattingObject2 = new Telerik.WinControls.UI.ConditionalFormattingObject();
+            Telerik.WinControls.UI.ConditionalFormattingObject conditionalFormattingObject3 = new Telerik.WinControls.UI.ConditionalFormattingObject();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.radPageView1 = new Telerik.WinControls.UI.RadPageView();
             this.radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
             this.btnOpen = new Telerik.WinControls.UI.RadSplitButton();
             this.radRefresh = new Telerik.WinControls.UI.RadButton();
             this.radGridView1 = new Telerik.WinControls.UI.RadGridView();
             this.nlogEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.txtFilePath = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
             this.radPageViewPage1.SuspendLayout();
@@ -70,6 +70,7 @@
             this.radPageView1.TabIndex = 0;
             this.radPageView1.Text = "radPageView1";
             this.radPageView1.NewPageRequested += new System.EventHandler(this.radPageView1_NewPageRequested);
+            this.radPageView1.PageRemoving += new System.EventHandler<Telerik.WinControls.UI.RadPageViewCancelEventArgs>(this.radPageView1_PageRemoving);
             ((Telerik.WinControls.UI.RadPageViewStripElement)(this.radPageView1.GetChildAt(0))).ShowItemCloseButton = true;
             // 
             // radPageViewPage1
@@ -78,11 +79,23 @@
             this.radPageViewPage1.Controls.Add(this.btnOpen);
             this.radPageViewPage1.Controls.Add(this.radRefresh);
             this.radPageViewPage1.Controls.Add(this.radGridView1);
-            this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(87F, 28F);
+            this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(84F, 28F);
             this.radPageViewPage1.Location = new System.Drawing.Point(10, 37);
             this.radPageViewPage1.Name = "radPageViewPage1";
             this.radPageViewPage1.Size = new System.Drawing.Size(823, 552);
-            this.radPageViewPage1.Text = "New Page";
+            this.radPageViewPage1.Text = "Log File 1";
+            // 
+            // txtFilePath
+            // 
+            this.txtFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFilePath.Location = new System.Drawing.Point(119, 4);
+            this.txtFilePath.Multiline = true;
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.ReadOnly = true;
+            this.txtFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtFilePath.Size = new System.Drawing.Size(617, 24);
+            this.txtFilePath.TabIndex = 1;
             // 
             // btnOpen
             // 
@@ -112,65 +125,65 @@
             // 
             // 
             this.radGridView1.MasterTemplate.AllowAddNewRow = false;
-            gridViewDateTimeColumn3.FieldName = "LogTime";
-            gridViewDateTimeColumn3.HeaderText = "DateTime";
-            gridViewDateTimeColumn3.IsAutoGenerated = true;
-            gridViewDateTimeColumn3.Name = "Log Time";
-            gridViewDateTimeColumn3.ReadOnly = true;
-            gridViewDateTimeColumn3.Width = 130;
-            conditionalFormattingObject7.ApplyToRow = true;
-            conditionalFormattingObject7.CellBackColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject7.CellForeColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject7.Name = "WarningCondition";
-            conditionalFormattingObject7.RowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            conditionalFormattingObject7.RowForeColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject7.TValue1 = "Warn";
-            conditionalFormattingObject8.ApplyToRow = true;
-            conditionalFormattingObject8.CellBackColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject8.CellForeColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject8.Name = "ErrorCondition";
-            conditionalFormattingObject8.RowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            conditionalFormattingObject8.RowForeColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject8.TValue1 = "Error";
-            conditionalFormattingObject9.ApplyToRow = true;
-            conditionalFormattingObject9.CellBackColor = System.Drawing.Color.Red;
-            conditionalFormattingObject9.CellFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            conditionalFormattingObject9.CellForeColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject9.Name = "FatalCondition";
-            conditionalFormattingObject9.RowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            conditionalFormattingObject9.RowForeColor = System.Drawing.Color.Empty;
-            conditionalFormattingObject9.TValue1 = "Fatal";
-            gridViewTextBoxColumn7.ConditionalFormattingObjectList.Add(conditionalFormattingObject7);
-            gridViewTextBoxColumn7.ConditionalFormattingObjectList.Add(conditionalFormattingObject8);
-            gridViewTextBoxColumn7.ConditionalFormattingObjectList.Add(conditionalFormattingObject9);
-            gridViewTextBoxColumn7.FieldName = "Level";
-            gridViewTextBoxColumn7.HeaderText = "Level";
-            gridViewTextBoxColumn7.IsAutoGenerated = true;
-            gridViewTextBoxColumn7.Name = "Level";
-            gridViewTextBoxColumn7.ReadOnly = true;
-            gridViewTextBoxColumn8.FieldName = "CallStack";
-            gridViewTextBoxColumn8.HeaderText = "CallStack";
-            gridViewTextBoxColumn8.IsAutoGenerated = true;
-            gridViewTextBoxColumn8.Name = "Call Stack";
-            gridViewTextBoxColumn8.ReadOnly = true;
-            gridViewTextBoxColumn8.Width = 170;
-            gridViewTextBoxColumn9.FieldName = "Message";
-            gridViewTextBoxColumn9.HeaderText = "Message";
-            gridViewTextBoxColumn9.IsAutoGenerated = true;
-            gridViewTextBoxColumn9.Name = "Message";
-            gridViewTextBoxColumn9.ReadOnly = true;
-            gridViewTextBoxColumn9.Width = 450;
+            gridViewDateTimeColumn1.FieldName = "LogTime";
+            gridViewDateTimeColumn1.HeaderText = "DateTime";
+            gridViewDateTimeColumn1.IsAutoGenerated = true;
+            gridViewDateTimeColumn1.Name = "Log Time";
+            gridViewDateTimeColumn1.ReadOnly = true;
+            gridViewDateTimeColumn1.Width = 130;
+            conditionalFormattingObject1.ApplyToRow = true;
+            conditionalFormattingObject1.CellBackColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject1.CellForeColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject1.Name = "WarningCondition";
+            conditionalFormattingObject1.RowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            conditionalFormattingObject1.RowForeColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject1.TValue1 = "Warn";
+            conditionalFormattingObject2.ApplyToRow = true;
+            conditionalFormattingObject2.CellBackColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject2.CellForeColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject2.Name = "ErrorCondition";
+            conditionalFormattingObject2.RowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            conditionalFormattingObject2.RowForeColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject2.TValue1 = "Error";
+            conditionalFormattingObject3.ApplyToRow = true;
+            conditionalFormattingObject3.CellBackColor = System.Drawing.Color.Red;
+            conditionalFormattingObject3.CellFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            conditionalFormattingObject3.CellForeColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject3.Name = "FatalCondition";
+            conditionalFormattingObject3.RowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            conditionalFormattingObject3.RowForeColor = System.Drawing.Color.Empty;
+            conditionalFormattingObject3.TValue1 = "Fatal";
+            gridViewTextBoxColumn1.ConditionalFormattingObjectList.Add(conditionalFormattingObject1);
+            gridViewTextBoxColumn1.ConditionalFormattingObjectList.Add(conditionalFormattingObject2);
+            gridViewTextBoxColumn1.ConditionalFormattingObjectList.Add(conditionalFormattingObject3);
+            gridViewTextBoxColumn1.FieldName = "Level";
+            gridViewTextBoxColumn1.HeaderText = "Level";
+            gridViewTextBoxColumn1.IsAutoGenerated = true;
+            gridViewTextBoxColumn1.Name = "Level";
+            gridViewTextBoxColumn1.ReadOnly = true;
+            gridViewTextBoxColumn2.FieldName = "CallStack";
+            gridViewTextBoxColumn2.HeaderText = "CallStack";
+            gridViewTextBoxColumn2.IsAutoGenerated = true;
+            gridViewTextBoxColumn2.Name = "Call Stack";
+            gridViewTextBoxColumn2.ReadOnly = true;
+            gridViewTextBoxColumn2.Width = 170;
+            gridViewTextBoxColumn3.FieldName = "Message";
+            gridViewTextBoxColumn3.HeaderText = "Message";
+            gridViewTextBoxColumn3.IsAutoGenerated = true;
+            gridViewTextBoxColumn3.Name = "Message";
+            gridViewTextBoxColumn3.ReadOnly = true;
+            gridViewTextBoxColumn3.Width = 450;
             this.radGridView1.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewDateTimeColumn3,
-            gridViewTextBoxColumn7,
-            gridViewTextBoxColumn8,
-            gridViewTextBoxColumn9});
+            gridViewDateTimeColumn1,
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3});
             this.radGridView1.MasterTemplate.DataSource = this.nlogEntityBindingSource;
             this.radGridView1.MasterTemplate.EnableFiltering = true;
-            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.radGridView1.Name = "radGridView1";
             this.radGridView1.ReadOnly = true;
-            this.radGridView1.Size = new System.Drawing.Size(820, 522);
+            this.radGridView1.Size = new System.Drawing.Size(820, 526);
             this.radGridView1.TabIndex = 0;
             this.radGridView1.Text = "radGridView1";
             // 
@@ -181,18 +194,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // txtFilePath
-            // 
-            this.txtFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilePath.Location = new System.Drawing.Point(119, 4);
-            this.txtFilePath.Multiline = true;
-            this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.ReadOnly = true;
-            this.txtFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFilePath.Size = new System.Drawing.Size(617, 24);
-            this.txtFilePath.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -206,6 +207,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Log Viewer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).EndInit();
             this.radPageView1.ResumeLayout(false);
