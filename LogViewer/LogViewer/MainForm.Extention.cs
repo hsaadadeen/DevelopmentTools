@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,31 +43,40 @@ namespace LogViewer
 
         private void SetEventsOnNewPage(RadPageControl pageControl)
         {
-            var pbtnOpen = pageControl.Controls["btnOpen"] as RadSplitButton;
-            pbtnOpen.DropDownButtonElement.ActionButton.Click += btnOpenActionButton_Click;
-            var pgrdLogs = pageControl.Controls["grdLogs"] as RadGridView;
-            pgrdLogs.DoubleClick += grdLogs_DoubleClick;
-            var pbtnRefresh = pageControl.Controls["btnRefresh"] as RadButton;
-            pbtnRefresh.Click += btnRefresh_Click;
+            pageControl.OpenButton.DropDownButtonElement.ActionButton.Click += btnOpenActionButton_Click;
+            pageControl.LogLinesGrid.DoubleClick += grdLogs_DoubleClick;
+            pageControl.RefreshButton.Click += btnRefresh_Click;
         }
 
         private void SetControlsOnNewPage(RadPageControl pageControl)
         {
-            (pageControl.Controls["grdLogs"] as RadGridView).MasterTemplate.AutoSizeColumnsMode = GridViewAutoSizeColumnsMode.Fill;
+            pageControl.LogLinesGrid.MasterTemplate.AutoSizeColumnsMode = GridViewAutoSizeColumnsMode.Fill;
 
-            var pbtnOpen = pageControl.Controls["btnOpen"] as RadSplitButton;
             foreach (KeyValuePair<string, string> savedLogsPair in SavedLogsLoader.SavedLogsDic)
             {
                 var menuItem = new RadMenuItem(savedLogsPair.Key, savedLogsPair.Value);
                 menuItem.Click += RadMenuItem_Click;
-                pbtnOpen.Items.Add(menuItem);
+                pageControl.OpenButton.Items.Add(menuItem);
             }
         }
 
         private void LoadGrid(RadGridView grd, string path)
         {
-            var logs = obzParser.ParseLogFile(path) as List<NlogEntity>;
-            grd.DataSource = logs;
+            try
+            {
+                var logs = obzParser.ParseLogFile(path) as List<NlogEntity>;
+                grd.DataSource = logs;
+                RadPageControl page = radPageView.SelectedPage.Controls["RadPageControl"] as RadPageControl;
+                page.LinesCount = logs.Count.ToString();
+            }
+            catch (FileNotFoundException)
+            {
+                RadMessageBox.Show("No file found!", "File not found", MessageBoxButtons.OK, RadMessageIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                RadMessageBox.Show(ex.Message, "Error while loading file", MessageBoxButtons.OK, RadMessageIcon.Error);
+            }
         }
     }
 }

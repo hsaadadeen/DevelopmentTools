@@ -36,8 +36,8 @@ namespace LogViewer
             if (openDialogResult == DialogResult.OK)
             {
                 RadPageControl page = radPageView.SelectedPage.Controls["RadPageControl"] as RadPageControl;
-                page.Controls["txtFilePath"].Text = openFileDialog1.FileName;
-                LoadGrid(page.Controls["grdLogs"] as RadGridView, openFileDialog1.FileName);
+                page.FilePath = openFileDialog1.FileName;
+                LoadGrid(page.LogLinesGrid, openFileDialog1.FileName);
 
                 if (!SavedLogsLoader.SavedLogsDic.ContainsValue(openFileDialog1.FileName))
                     radPageView.SelectedPage.Text += "*";
@@ -47,15 +47,15 @@ namespace LogViewer
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RadPageControl page = radPageView.SelectedPage.Controls["RadPageControl"] as RadPageControl;
-            LoadGrid(page.Controls["grdLogs"] as RadGridView, page.Controls["txtFilePath"].Text);
+            LoadGrid(page.LogLinesGrid, page.FilePath);
         }
 
         private void RadMenuItem_Click(object sender, EventArgs e)
         {
             RadPageControl page = radPageView.SelectedPage.Controls["RadPageControl"] as RadPageControl;
             RadMenuItem clickedMenuItem = (RadMenuItem)sender;
-            page.Controls["txtFilePath"].Text = clickedMenuItem.Tag.ToString();
-            LoadGrid(page.Controls["grdLogs"] as RadGridView, clickedMenuItem.Tag.ToString());
+            page.FilePath = clickedMenuItem.Tag.ToString();
+            LoadGrid(page.LogLinesGrid, clickedMenuItem.Tag.ToString());
 
         }
 
@@ -68,7 +68,7 @@ namespace LogViewer
         {
             if (e.Page.Text.Contains("*"))
             {
-                frmSavePath frm = new frmSavePath(e.Page.Controls["RadPageControl"].Controls["txtFilePath"].Text);
+                frmSavePath frm = new frmSavePath((e.Page.Controls["RadPageControl"] as RadPageControl).FilePath);
                 frm.ShowDialog();
             }
         }

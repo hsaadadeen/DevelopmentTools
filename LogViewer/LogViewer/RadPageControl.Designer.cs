@@ -36,27 +36,20 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            this.txtFilePath = new System.Windows.Forms.TextBox();
             this.btnOpen = new Telerik.WinControls.UI.RadSplitButton();
             this.btnRefresh = new Telerik.WinControls.UI.RadButton();
             this.grdLogs = new Telerik.WinControls.UI.RadGridView();
+            this.radStatusStrip = new Telerik.WinControls.UI.RadStatusStrip();
+            this.radLabelElement1 = new Telerik.WinControls.UI.RadLabelElement();
+            this.lblFilePath = new Telerik.WinControls.UI.RadLabelElement();
+            this.lblLinesCount = new Telerik.WinControls.UI.RadLabelElement();
+            this.lblCurrentLine = new Telerik.WinControls.UI.RadLabelElement();
             ((System.ComponentModel.ISupportInitialize)(this.btnOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdLogs.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtFilePath
-            // 
-            this.txtFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilePath.Location = new System.Drawing.Point(121, 3);
-            this.txtFilePath.Multiline = true;
-            this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.ReadOnly = true;
-            this.txtFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFilePath.Size = new System.Drawing.Size(768, 24);
-            this.txtFilePath.TabIndex = 4;
             // 
             // btnOpen
             // 
@@ -68,8 +61,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Location = new System.Drawing.Point(895, 3);
+            this.btnRefresh.Location = new System.Drawing.Point(134, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(67, 24);
             this.btnRefresh.TabIndex = 6;
@@ -147,31 +139,77 @@
             this.grdLogs.Size = new System.Drawing.Size(971, 630);
             this.grdLogs.TabIndex = 3;
             this.grdLogs.Text = "radGridView1";
+            this.grdLogs.CurrentRowChanged += new Telerik.WinControls.UI.CurrentRowChangedEventHandler(this.grdLogs_CurrentRowChanged);
+            // 
+            // radStatusStrip
+            // 
+            this.radStatusStrip.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radLabelElement1,
+            this.lblFilePath,
+            this.lblLinesCount,
+            this.lblCurrentLine});
+            this.radStatusStrip.Location = new System.Drawing.Point(0, 663);
+            this.radStatusStrip.Name = "radStatusStrip";
+            this.radStatusStrip.Size = new System.Drawing.Size(975, 26);
+            this.radStatusStrip.TabIndex = 7;
+            // 
+            // radLabelElement1
+            // 
+            this.radLabelElement1.Name = "radLabelElement1";
+            this.radStatusStrip.SetSpring(this.radLabelElement1, false);
+            this.radLabelElement1.Text = "";
+            this.radLabelElement1.TextWrap = true;
+            // 
+            // lblFilePath
+            // 
+            this.lblFilePath.Name = "lblFilePath";
+            this.radStatusStrip.SetSpring(this.lblFilePath, false);
+            this.lblFilePath.Text = "{file path}";
+            this.lblFilePath.TextWrap = true;
+            // 
+            // lblLinesCount
+            // 
+            this.lblLinesCount.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblLinesCount.Name = "lblLinesCount";
+            this.radStatusStrip.SetSpring(this.lblLinesCount, false);
+            this.lblLinesCount.Text = "lines: ";
+            this.lblLinesCount.TextWrap = true;
+            // 
+            // lblCurrentLine
+            // 
+            this.lblCurrentLine.Name = "lblCurrentLine";
+            this.radStatusStrip.SetSpring(this.lblCurrentLine, false);
+            this.lblCurrentLine.Text = "ln:";
+            this.lblCurrentLine.TextWrap = true;
             // 
             // RadPageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtFilePath);
+            this.Controls.Add(this.radStatusStrip);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.grdLogs);
             this.Name = "RadPageControl";
-            this.Size = new System.Drawing.Size(975, 666);
+            this.Size = new System.Drawing.Size(975, 689);
             ((System.ComponentModel.ISupportInitialize)(this.btnOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdLogs.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdLogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtFilePath;
         private Telerik.WinControls.UI.RadSplitButton btnOpen;
         private Telerik.WinControls.UI.RadButton btnRefresh;
         private Telerik.WinControls.UI.RadGridView grdLogs;
+        private Telerik.WinControls.UI.RadStatusStrip radStatusStrip;
+        private Telerik.WinControls.UI.RadLabelElement radLabelElement1;
+        private Telerik.WinControls.UI.RadLabelElement lblFilePath;
+        private Telerik.WinControls.UI.RadLabelElement lblLinesCount;
+        private Telerik.WinControls.UI.RadLabelElement lblCurrentLine;
     }
 }
