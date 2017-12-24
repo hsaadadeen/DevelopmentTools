@@ -15,7 +15,7 @@ namespace LogViewer
     public partial class MainForm : Telerik.WinControls.UI.RadForm
     {
         private bzParser obzParser;
-        private short pagesCount = 1;
+        private short pagesCount = 0;
 
         public MainForm()
         {
@@ -27,38 +27,35 @@ namespace LogViewer
         void radPageView1_NewPageRequested(object sender, EventArgs e)
         {
             RadPageView pageView = sender as RadPageView;
-            RadPageViewStripElement stripElement = pageView.ViewElement as RadPageViewStripElement;
-            RadPageViewPage page = new RadPageViewPage();
-            page.Text = "Log File " + ++pagesCount;
-            page.Controls.Add(new RadPageControl());
-            pageView.Pages.Add(page);
-            pageView.SelectedPage = page;
-            pageView.ViewElement.EnsureItemVisible(stripElement.NewItem);
+            AddNewPage(pageView);
         }
-
+        
         private void btnOpenActionButton_Click(object sender, EventArgs e)
         {
             DialogResult openDialogResult = openFileDialog1.ShowDialog();
             if (openDialogResult == DialogResult.OK)
             {
-                txtFilePath.Text = openFileDialog1.FileName;
-                LoadGrid(openFileDialog1.FileName);
+                RadPageControl page = radPageView.SelectedPage.Controls["RadPageControl"] as RadPageControl;
+                page.Controls["txtFilePath"].Text = openFileDialog1.FileName;
+                LoadGrid(page.Controls["grdLogs"] as RadGridView, openFileDialog1.FileName);
 
                 if (!SavedLogsLoader.SavedLogsDic.ContainsValue(openFileDialog1.FileName))
-                    radPageView1.SelectedPage.Text += "*";
+                    radPageView.SelectedPage.Text += "*";
             }
         }
 
-        private void radRefresh_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadGrid(txtFilePath.Text);
+            RadPageControl page = radPageView.SelectedPage.Controls["RadPageControl"] as RadPageControl;
+            LoadGrid(page.Controls["grdLogs"] as RadGridView, page.Controls["txtFilePath"].Text);
         }
 
         private void RadMenuItem_Click(object sender, EventArgs e)
         {
+            RadPageControl page = radPageView.SelectedPage.Controls["RadPageControl"] as RadPageControl;
             RadMenuItem clickedMenuItem = (RadMenuItem)sender;
-            txtFilePath.Text = clickedMenuItem.Tag.ToString();
-            LoadGrid(clickedMenuItem.Tag.ToString());
+            page.Controls["txtFilePath"].Text = clickedMenuItem.Tag.ToString();
+            LoadGrid(page.Controls["grdLogs"] as RadGridView, clickedMenuItem.Tag.ToString());
 
         }
 
@@ -71,19 +68,19 @@ namespace LogViewer
         {
             if (e.Page.Text.Contains("*"))
             {
-                frmSavePath frm = new frmSavePath(txtFilePath.Text);
+                frmSavePath frm = new frmSavePath(e.Page.Controls["RadPageControl"].Controls["txtFilePath"].Text);
                 frm.ShowDialog();
             }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            int pages = radPageView1.Pages.Count;
+            int pages = radPageView.Pages.Count;
             for (int i = 0; i < pages; i++)
-                radPageView1.Pages.RemoveAt(0);
+                radPageView.Pages.RemoveAt(0);
         }
 
-        private void radGridView1_DoubleClick(object sender, EventArgs e)
+        private void grdLogs_DoubleClick(object sender, EventArgs e)
         {
             RadGridView grd = sender as RadGridView;
             var selectedCell = grd.CurrentCell;
