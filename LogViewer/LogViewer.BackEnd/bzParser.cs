@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace LogViewer.BackEnd
             List<string> lines = System.IO.File.ReadAllLines(path).ToList();
             var validLines = lines.Where(r => r.Split('|').Count() >= 4).ToList();
 
-            List<NlogEntity> logLines  = new List<NlogEntity>();
+            BindingList<NlogEntity> logLines  = new BindingList<NlogEntity>();
 
             foreach (string line in validLines)
             {

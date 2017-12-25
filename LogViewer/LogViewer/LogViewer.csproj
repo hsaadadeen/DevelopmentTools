@@ -52,7 +52,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.WinControls.GridView, Version=2016.1.216.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2016.1.216.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadDock, Version=2016.1.216.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2016.1.216.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2016.1.216.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin40\Telerik.WinControls.UI.dll</HintPath>
       <Private>True</Private>
@@ -63,15 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.Extention.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RadPageControl.cs">
@@ -80,6 +72,12 @@
     <Compile Include="RadPageControl.Designer.cs">
       <DependentUpon>RadPageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="RadRibbonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RadRibbonForm.Designer.cs">
+      <DependentUpon>RadRibbonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SavedLogsConfig.cs" />
     <Compile Include="frmSavePath.cs">
       <SubType>Form</SubType>
@@ -87,9 +85,6 @@
     <Compile Include="frmSavePath.Designer.cs">
       <DependentUpon>frmSavePath.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,12 +94,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="frmSavePath.resx">
       <DependentUpon>frmSavePath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RadPageControl.resx">
       <DependentUpon>RadPageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RadRibbonForm.resx">
+      <DependentUpon>RadRibbonForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\LogViewer.BackEnd.Entities.NlogEntity.datasource" />
     <None Include="Properties\Settings.settings">
@@ -132,6 +131,11 @@
   <ItemGroup>
     <Content Include="log.ico" />
     <Content Include="Resources\log.ico" />
+    <None Include="Resources\log.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\refresh-file.png" />
+    <None Include="Resources\open-file.png" />
+    <None Include="Resources\new-file.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

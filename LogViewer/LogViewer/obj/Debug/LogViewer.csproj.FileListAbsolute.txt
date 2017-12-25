@@ -32,10 +32,13 @@ C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\Log
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.GridView.xml
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.UI.xml
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.csprojResolveAssemblyReference.cache
-C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.MainForm.resources
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.Properties.Resources.resources
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.csproj.GenerateResource.Cache
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.exe.licenses
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.frmSavePath.resources
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.RadPageControl.resources
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.Themes.VisualStudio2012Light.dll
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.RadDock.dll
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.RadDock.xml
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.RadRibbonForm.resources
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.csproj.LogViewer.exe.config
