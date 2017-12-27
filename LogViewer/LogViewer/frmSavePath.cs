@@ -23,10 +23,10 @@ namespace LogViewer
         {
             try
             {
-                string path = Path.Combine(Path.GetDirectoryName(txtPath.Text), txtFileNameFormat.Text);
-                SavedLogsLoader.SavedLogsDic.Add(txtKey.Text, path);
+                SavedLogsLoader.SavedLogsDic.Add(txtKey.Text, SavedLogsLoader.GetConfigPath(txtPath.Text));
                 SavedLogsLoader.SaveLogPath(txtKey.Text);
                 RadMessageBox.Show("New path saved", "Saved Successfully", MessageBoxButtons.OK, RadMessageIcon.Info);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)

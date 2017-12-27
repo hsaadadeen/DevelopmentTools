@@ -30,7 +30,7 @@ namespace LogViewer
 
         private void Setupcontrols()
         {
-            ThemeResolutionService.ApplicationThemeName = "VisualStudio2012Light";
+            ThemeResolutionService.ApplicationThemeName = Properties.Settings.Default.ThemeName;
 
             SavedLogsLoader.LoadSavedLogsPaths();
 
@@ -62,8 +62,13 @@ namespace LogViewer
                 RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
                 page.FilePath = openFileDialog.FileName;
                 page.LoadGrid();
+                lblFileName.Text = page.FilePath;
+                lblLinesCount.Text = "lines: " + page.LinesCount;
 
-                if (!SavedLogsLoader.SavedLogsDic.ContainsValue(openFileDialog.FileName))
+                chkAutoRefresh.Checked = Convert.ToBoolean(Properties.Settings.Default.AutoRefreshEnabled);
+
+                if (SavedLogsLoader.SavedLogsDic.ContainsValue(SavedLogsLoader.GetConfigPath(openFileDialog.FileName))) return;
+                if (!radDock.ActiveWindow.Text.Contains("*"))
                     radDock.ActiveWindow.Text += "*";
             }
         }
@@ -82,11 +87,18 @@ namespace LogViewer
             lblLinesCount.Text = "lines: " + page.LinesCount;
 
             page.LogLinesGrid.CurrentRowChanged += this.grdLogs_CurrentRowChanged;
+            page.LogLinesGrid.DataBindingComplete += grdLogs_CountUpdated;
         }
 
         private void grdLogs_CurrentRowChanged(object sender, CurrentRowChangedEventArgs e)
         {
             lblCurrentLine.Text = "ln: " + (e.CurrentRow.Index + 1);
+        }
+
+        private void grdLogs_CountUpdated(object sender, GridViewBindingCompleteEventArgs e)
+        {
+            RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
+            lblLinesCount.Text = "lines: " + page.LinesCount;
         }
 
 
@@ -104,6 +116,44 @@ namespace LogViewer
             //int pages = radPageView.Pages.Count;
             //for (int i = 0; i < pages; i++)
             //    radPageView.Pages.RemoveAt(0);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (radDock.ActiveWindow.Text.Contains("*"))
+            {
+                frmSavePath frm =
+                    new frmSavePath((radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl).FilePath);
+                var result = frm.ShowDialog();
+                if (result == DialogResult.OK)
+                    radDock.ActiveWindow.Text = radDock.ActiveWindow.Text.Replace("*", "");
+            }
+        }
+
+        private void chkAutoRefresh_CheckStateChanged(object sender, EventArgs e)
+        {
+            RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
+            page.AutoRefreshEnabled = chkAutoRefresh.Checked;
+            Properties.Settings.Default.AutoRefreshEnabled = chkAutoRefresh.Checked.ToString();
+            Properties.Settings.Default.Save();
+        }
+
+        private void radRibbonBar_OptionsButton_Click(object sender, EventArgs e)
+        {
+            frmOptions frm = new frmOptions();
+            if(frm.ShowDialog() == DialogResult.OK)
+                ThemeResolutionService.ApplicationThemeName = Properties.Settings.Default.ThemeName;
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            frmAboutBox frm = new frmAboutBox();
+            frm.Show();
+        }
+
+        private void radRibbonBar_ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

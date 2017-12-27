@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,11 @@ namespace LogViewer
             xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
 
             ConfigurationManager.RefreshSection("SavedLogsPaths");
+        }
+
+        public static string GetConfigPath(string fileName)
+        {
+            return Path.Combine(Path.GetDirectoryName(fileName), fileName);
         }
     }
 

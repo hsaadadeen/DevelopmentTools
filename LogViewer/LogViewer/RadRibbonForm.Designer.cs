@@ -29,33 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RadRibbonForm));
-            this.radRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
-            this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
-            this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
-            this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radRibbonBarButtonGroup2 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
-            this.radRibbonBarGroup3 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
+            this.lblFileName = new Telerik.WinControls.UI.RadLabelElement();
+            this.lblLinesCount = new Telerik.WinControls.UI.RadLabelElement();
+            this.lblCurrentLine = new Telerik.WinControls.UI.RadLabelElement();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radDock = new Telerik.WinControls.UI.Docking.RadDock();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.wSavedLogs = new Telerik.WinControls.UI.Docking.ToolWindow();
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.visualStudio2012LightTheme1 = new Telerik.WinControls.Themes.VisualStudio2012LightTheme();
-            this.lblFileName = new Telerik.WinControls.UI.RadLabelElement();
-            this.lblLinesCount = new Telerik.WinControls.UI.RadLabelElement();
-            this.lblCurrentLine = new Telerik.WinControls.UI.RadLabelElement();
-            this.radRibbonBarButtonGroup3 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
+            this.radRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
+            this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
+            this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.btnNew = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radRibbonBarButtonGroup2 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.btnLoad = new Telerik.WinControls.UI.RadButtonElement();
-            this.btnRefresh = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarGroup3 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radRibbonBarButtonGroup3 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.btnSave = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarGroup4 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radRibbonBarButtonGroup4 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
+            this.btnRefresh = new Telerik.WinControls.UI.RadButtonElement();
+            this.chkAutoRefresh = new Telerik.WinControls.UI.RadCheckBoxElement();
+            this.radMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
+            this.btnAbout = new Telerik.WinControls.UI.RadMenuButtonItem();
+            this.radMenuSeparatorItem2 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.documentWindow1 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.radPageControl1 = new LogViewer.RadPageControl();
-            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDock)).BeginInit();
@@ -65,82 +71,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar)).BeginInit();
             this.documentWindow1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // radRibbonBar
-            // 
-            this.radRibbonBar.CommandTabs.AddRange(new Telerik.WinControls.RadItem[] {
-            this.ribbonTab1});
-            // 
-            // 
-            // 
-            this.radRibbonBar.ExitButton.Text = "Exit";
-            this.radRibbonBar.ExitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.radRibbonBar.Location = new System.Drawing.Point(0, 0);
-            this.radRibbonBar.Name = "radRibbonBar";
-            // 
-            // 
-            // 
-            this.radRibbonBar.OptionsButton.Image = global::LogViewer.Properties.Resources.log;
-            this.radRibbonBar.OptionsButton.Text = "Options";
-            this.radRibbonBar.OptionsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            // 
-            // 
-            // 
-            this.radRibbonBar.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
-            this.radRibbonBar.Size = new System.Drawing.Size(1203, 176);
-            this.radRibbonBar.TabIndex = 0;
-            this.radRibbonBar.Text = "RadRibbonForm";
-            // 
-            // ribbonTab1
-            // 
-            this.ribbonTab1.IsSelected = true;
-            this.ribbonTab1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radRibbonBarGroup1,
-            this.radRibbonBarGroup2,
-            this.radRibbonBarGroup3});
-            this.ribbonTab1.Name = "ribbonTab1";
-            this.ribbonTab1.Text = "Home";
-            // 
-            // radRibbonBarGroup1
-            // 
-            this.radRibbonBarGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radRibbonBarButtonGroup1});
-            this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
-            this.radRibbonBarGroup1.Text = "New";
-            // 
-            // radRibbonBarButtonGroup1
-            // 
-            this.radRibbonBarButtonGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.btnNew});
-            this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
-            this.radRibbonBarButtonGroup1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.radRibbonBarButtonGroup1.Text = "radRibbonBarButtonGroup1";
-            // 
-            // radRibbonBarGroup2
-            // 
-            this.radRibbonBarGroup2.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radRibbonBarButtonGroup2});
-            this.radRibbonBarGroup2.Name = "radRibbonBarGroup2";
-            this.radRibbonBarGroup2.Text = "Load";
-            // 
-            // radRibbonBarButtonGroup2
-            // 
-            this.radRibbonBarButtonGroup2.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.btnLoad,
-            this.btnRefresh});
-            this.radRibbonBarButtonGroup2.Name = "radRibbonBarButtonGroup2";
-            this.radRibbonBarButtonGroup2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.radRibbonBarButtonGroup2.Text = "radRibbonBarButtonGroup2";
-            // 
-            // radRibbonBarGroup3
-            // 
-            this.radRibbonBarGroup3.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radRibbonBarButtonGroup3});
-            this.radRibbonBarGroup3.Name = "radRibbonBarGroup3";
-            this.radRibbonBarGroup3.Text = "Save";
             // 
             // radStatusStrip1
             // 
@@ -154,6 +88,27 @@
             this.radStatusStrip1.SizingGrip = false;
             this.radStatusStrip1.TabIndex = 1;
             this.radStatusStrip1.Text = "radStatusStrip1";
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.Name = "lblFileName";
+            this.radStatusStrip1.SetSpring(this.lblFileName, false);
+            this.lblFileName.Text = "{file name}";
+            this.lblFileName.TextWrap = true;
+            // 
+            // lblLinesCount
+            // 
+            this.lblLinesCount.Name = "lblLinesCount";
+            this.radStatusStrip1.SetSpring(this.lblLinesCount, false);
+            this.lblLinesCount.Text = "lines: ";
+            this.lblLinesCount.TextWrap = true;
+            // 
+            // lblCurrentLine
+            // 
+            this.lblCurrentLine.Name = "lblCurrentLine";
+            this.radStatusStrip1.SetSpring(this.lblCurrentLine, false);
+            this.lblCurrentLine.Text = "ln: ";
+            this.lblCurrentLine.TextWrap = true;
             // 
             // panel1
             // 
@@ -181,11 +136,21 @@
             // 
             // 
             this.radDock.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.radDock.Size = new System.Drawing.Size(1203, 586);
+            this.radDock.Size = new System.Drawing.Size(1203, 572);
             this.radDock.TabIndex = 0;
             this.radDock.TabStop = false;
             this.radDock.Text = "radDock1";
             this.radDock.ActiveWindowChanged += new Telerik.WinControls.UI.Docking.DockWindowEventHandler(this.radDock_ActiveWindowChanged);
+            // 
+            // wSavedLogs
+            // 
+            this.wSavedLogs.Caption = null;
+            this.wSavedLogs.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.wSavedLogs.Location = new System.Drawing.Point(1, 24);
+            this.wSavedLogs.Name = "wSavedLogs";
+            this.wSavedLogs.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Hidden;
+            this.wSavedLogs.Size = new System.Drawing.Size(198, 536);
+            this.wSavedLogs.Text = "Saved Logs";
             // 
             // toolTabStrip1
             // 
@@ -198,19 +163,9 @@
             // 
             this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(200, 576);
+            this.toolTabStrip1.Size = new System.Drawing.Size(200, 562);
             this.toolTabStrip1.TabIndex = 1;
             this.toolTabStrip1.TabStop = false;
-            // 
-            // wSavedLogs
-            // 
-            this.wSavedLogs.Caption = null;
-            this.wSavedLogs.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.wSavedLogs.Location = new System.Drawing.Point(1, 24);
-            this.wSavedLogs.Name = "wSavedLogs";
-            this.wSavedLogs.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Hidden;
-            this.wSavedLogs.Size = new System.Drawing.Size(198, 550);
-            this.wSavedLogs.Text = "Saved Logs";
             // 
             // documentContainer
             // 
@@ -242,33 +197,63 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // lblFileName
+            // radRibbonBar
             // 
-            this.lblFileName.Name = "lblFileName";
-            this.radStatusStrip1.SetSpring(this.lblFileName, false);
-            this.lblFileName.Text = "{file name}";
-            this.lblFileName.TextWrap = true;
+            this.radRibbonBar.CommandTabs.AddRange(new Telerik.WinControls.RadItem[] {
+            this.ribbonTab1});
             // 
-            // lblLinesCount
             // 
-            this.lblLinesCount.Name = "lblLinesCount";
-            this.radStatusStrip1.SetSpring(this.lblLinesCount, false);
-            this.lblLinesCount.Text = "lines: ";
-            this.lblLinesCount.TextWrap = true;
             // 
-            // lblCurrentLine
+            this.radRibbonBar.ExitButton.Text = "Exit";
+            this.radRibbonBar.ExitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radRibbonBar.ExitButton.Click += new System.EventHandler(this.radRibbonBar_ExitButton_Click);
+            this.radRibbonBar.Location = new System.Drawing.Point(0, 0);
+            this.radRibbonBar.Name = "radRibbonBar";
             // 
-            this.lblCurrentLine.Name = "lblCurrentLine";
-            this.radStatusStrip1.SetSpring(this.lblCurrentLine, false);
-            this.lblCurrentLine.Text = "ln: ";
-            this.lblCurrentLine.TextWrap = true;
             // 
-            // radRibbonBarButtonGroup3
             // 
-            this.radRibbonBarButtonGroup3.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.btnSave});
-            this.radRibbonBarButtonGroup3.Name = "radRibbonBarButtonGroup3";
-            this.radRibbonBarButtonGroup3.Text = "radRibbonBarButtonGroup3";
+            this.radRibbonBar.OptionsButton.Image = global::LogViewer.Properties.Resources.settings;
+            this.radRibbonBar.OptionsButton.Text = "Options";
+            this.radRibbonBar.OptionsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radRibbonBar.OptionsButton.Click += new System.EventHandler(this.radRibbonBar_OptionsButton_Click);
+            // 
+            // 
+            // 
+            this.radRibbonBar.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
+            this.radRibbonBar.Size = new System.Drawing.Size(1203, 176);
+            this.radRibbonBar.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar.StartButtonImage")));
+            this.radRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuSeparatorItem1,
+            this.btnAbout,
+            this.radMenuSeparatorItem2});
+            this.radRibbonBar.TabIndex = 0;
+            this.radRibbonBar.Text = "Log Viewer";
+            // 
+            // ribbonTab1
+            // 
+            this.ribbonTab1.IsSelected = true;
+            this.ribbonTab1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radRibbonBarGroup1,
+            this.radRibbonBarGroup2,
+            this.radRibbonBarGroup3,
+            this.radRibbonBarGroup4});
+            this.ribbonTab1.Name = "ribbonTab1";
+            this.ribbonTab1.Text = "Home";
+            // 
+            // radRibbonBarGroup1
+            // 
+            this.radRibbonBarGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radRibbonBarButtonGroup1});
+            this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
+            this.radRibbonBarGroup1.Text = "New";
+            // 
+            // radRibbonBarButtonGroup1
+            // 
+            this.radRibbonBarButtonGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.btnNew});
+            this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
+            this.radRibbonBarButtonGroup1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.radRibbonBarButtonGroup1.Text = "radRibbonBarButtonGroup1";
             // 
             // btnNew
             // 
@@ -280,6 +265,21 @@
             this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // radRibbonBarGroup2
+            // 
+            this.radRibbonBarGroup2.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radRibbonBarButtonGroup2});
+            this.radRibbonBarGroup2.Name = "radRibbonBarGroup2";
+            this.radRibbonBarGroup2.Text = "Load";
+            // 
+            // radRibbonBarButtonGroup2
+            // 
+            this.radRibbonBarButtonGroup2.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.btnLoad});
+            this.radRibbonBarButtonGroup2.Name = "radRibbonBarButtonGroup2";
+            this.radRibbonBarButtonGroup2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.radRibbonBarButtonGroup2.Text = "radRibbonBarButtonGroup2";
+            // 
             // btnLoad
             // 
             this.btnLoad.Image = global::LogViewer.Properties.Resources.open_file;
@@ -287,6 +287,44 @@
             this.btnLoad.Text = "Load New";
             this.btnLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // radRibbonBarGroup3
+            // 
+            this.radRibbonBarGroup3.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radRibbonBarButtonGroup3});
+            this.radRibbonBarGroup3.Name = "radRibbonBarGroup3";
+            this.radRibbonBarGroup3.Text = "Save";
+            // 
+            // radRibbonBarButtonGroup3
+            // 
+            this.radRibbonBarButtonGroup3.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.btnSave});
+            this.radRibbonBarButtonGroup3.Name = "radRibbonBarButtonGroup3";
+            this.radRibbonBarButtonGroup3.Text = "radRibbonBarButtonGroup3";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = global::LogViewer.Properties.Resources.save;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShowBorder = false;
+            this.btnSave.Text = "Save Log Path";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // radRibbonBarGroup4
+            // 
+            this.radRibbonBarGroup4.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radRibbonBarButtonGroup4});
+            this.radRibbonBarGroup4.Name = "radRibbonBarGroup4";
+            this.radRibbonBarGroup4.Text = "Refresh";
+            // 
+            // radRibbonBarButtonGroup4
+            // 
+            this.radRibbonBarButtonGroup4.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.btnRefresh,
+            this.chkAutoRefresh});
+            this.radRibbonBarButtonGroup4.Name = "radRibbonBarButtonGroup4";
+            this.radRibbonBarButtonGroup4.Text = "radRibbonBarButtonGroup4";
             // 
             // btnRefresh
             // 
@@ -296,13 +334,31 @@
             this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnSave
+            // chkAutoRefresh
             // 
-            this.btnSave.Image = global::LogViewer.Properties.Resources.save;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.ShowBorder = false;
-            this.btnSave.Text = "Save Log Path";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.chkAutoRefresh.Checked = false;
+            this.chkAutoRefresh.Name = "chkAutoRefresh";
+            this.chkAutoRefresh.ReadOnly = false;
+            this.chkAutoRefresh.Text = "Auto Refresh";
+            this.chkAutoRefresh.CheckStateChanged += new System.EventHandler(this.chkAutoRefresh_CheckStateChanged);
+            // 
+            // radMenuSeparatorItem1
+            // 
+            this.radMenuSeparatorItem1.Name = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.Text = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Text = "About";
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
+            // radMenuSeparatorItem2
+            // 
+            this.radMenuSeparatorItem2.Name = "radMenuSeparatorItem2";
+            this.radMenuSeparatorItem2.Text = "radMenuSeparatorItem2";
+            this.radMenuSeparatorItem2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // documentWindow1
             // 
@@ -319,10 +375,11 @@
             this.radPageControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.radPageControl1.AutoRefreshEnabled = false;
             this.radPageControl1.FilePath = "{file path}";
             this.radPageControl1.Location = new System.Drawing.Point(-3, 3);
             this.radPageControl1.Name = "radPageControl1";
-            this.radPageControl1.Size = new System.Drawing.Size(910, 602);
+            this.radPageControl1.Size = new System.Drawing.Size(914, 631);
             this.radPageControl1.TabIndex = 0;
             // 
             // RadRibbonForm
@@ -334,14 +391,14 @@
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.radRibbonBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = null;
             this.Name = "RadRibbonForm";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "RadRibbonForm";
+            this.Text = "Log Viewer";
             this.Load += new System.EventHandler(this.RadRibbonForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radDock)).EndInit();
@@ -351,6 +408,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar)).EndInit();
             this.documentWindow1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -386,5 +444,12 @@
         private Telerik.WinControls.UI.RadLabelElement lblCurrentLine;
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup3;
         private Telerik.WinControls.UI.RadButtonElement btnSave;
+        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup4;
+        private Telerik.WinControls.UI.RadCheckBoxElement chkAutoRefresh;
+        private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup4;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem1;
+        private Telerik.WinControls.Themes.VisualStudio2012DarkTheme visualStudio2012DarkTheme1;
+        private Telerik.WinControls.UI.RadMenuButtonItem btnAbout;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem2;
     }
 }

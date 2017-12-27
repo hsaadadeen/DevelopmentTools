@@ -42,3 +42,6 @@ C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\Log
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.RadDock.xml
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.RadRibbonForm.resources
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.csproj.LogViewer.exe.config
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.Themes.VisualStudio2012Dark.dll
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.frmAboutBox.resources
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.frmOptions.resources

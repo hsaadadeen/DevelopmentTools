@@ -19,6 +19,7 @@ namespace LogViewer
     {
         private FileSystemWatcher watcher;
         private string filePath;
+        private bool autoRefreshEnabled;
         public string FilePath
         {
             get
@@ -30,6 +31,23 @@ namespace LogViewer
             }
         }
         public int LinesCount { get { return grdLogs.Rows.Count; } }
+
+        public bool AutoRefreshEnabled
+        {
+            get
+            { return watcher.EnableRaisingEvents; }
+            set
+            {
+                autoRefreshEnabled = value;
+                try
+                {
+                    watcher.EnableRaisingEvents = value;
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
 
         public RadGridView LogLinesGrid { get { return grdLogs; } }
 
@@ -76,7 +94,7 @@ namespace LogViewer
                 watcher.Filter = Path.GetFileName(filePath);
                 watcher.NotifyFilter = NotifyFilters.LastWrite;
                 watcher.Changed += new FileSystemEventHandler(OnFileChanged);
-                watcher.EnableRaisingEvents = true;
+                watcher.EnableRaisingEvents = autoRefreshEnabled;
             }
             catch (Exception ex)
             {
@@ -91,19 +109,19 @@ namespace LogViewer
             var logs = obzParser.ParseLogFile(filePath) as BindingList<NlogEntity>;
             var oldLogs = grdLogs.DataSource as BindingList<NlogEntity>;
 
-            grdLogs.DataSource = logs;
-
-            //var newLines = logs.Where(r => !oldLogs.Any(l => l.LogTime == r.LogTime && l.Message == r.Message));
-            //if (newLines.Any())
-            //{
-            //    oldLogs.Add(new NlogEntity() {
-            //    LogTime = DateTime.Now,
-            //    Level = "ss",
-            //    CallStack = "ss",
-            //    Message = "ss"
-            //});
-            //grdLogs.Refresh();
-        //}
+            var newLines = logs.Where(r => !oldLogs.Any(l => l.LogTime == r.LogTime && l.Message == r.Message));
+            if (newLines.Any())
+            {
+                int rowIndex = -1;
+                if (grdLogs.Rows.Count > 0)
+                {
+                    rowIndex = grdLogs.CurrentRow.Index;
+                }
+                grdLogs.Invoke(new MethodInvoker(() => { this.grdLogs.DataSource = logs; }));
+                if (rowIndex <= 0 || rowIndex >= grdLogs.Rows.Count) return;
+                if(grdLogs.Rows[rowIndex] == null) return;
+                grdLogs.Rows[rowIndex].IsCurrent = true;
+            }
         }
     }
 }
