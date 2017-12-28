@@ -37,6 +37,7 @@
             this.radDock = new Telerik.WinControls.UI.Docking.RadDock();
             this.wSavedLogs = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.lstSavedLogs = new Telerik.WinControls.UI.RadListControl();
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -64,20 +65,19 @@
             this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
             this.documentWindow1 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.radPageControl1 = new LogViewer.RadPageControl();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDock)).BeginInit();
             this.radDock.SuspendLayout();
             this.wSavedLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lstSavedLogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
+            this.toolTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar)).BeginInit();
             this.documentWindow1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
-            this.toolTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,10 +166,26 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstSavedLogs.Location = new System.Drawing.Point(6, 3);
             this.lstSavedLogs.Name = "lstSavedLogs";
-            this.lstSavedLogs.Size = new System.Drawing.Size(189, 542);
+            this.lstSavedLogs.Size = new System.Drawing.Size(183, 560);
             this.lstSavedLogs.TabIndex = 0;
             this.lstSavedLogs.Text = "radListControl1";
+            this.lstSavedLogs.SelectedItemsChanged += new Telerik.WinControls.Data.NotifyCollectionChangedEventHandler(this.lstSavedLogs_SelectedItemsChanged);
             this.lstSavedLogs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstSavedLogs_MouseDoubleClick);
+            // 
+            // toolTabStrip1
+            // 
+            this.toolTabStrip1.CanUpdateChildIndex = true;
+            this.toolTabStrip1.Controls.Add(this.wSavedLogs);
+            this.toolTabStrip1.Location = new System.Drawing.Point(5, 5);
+            this.toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.toolTabStrip1.SelectedIndex = 0;
+            this.toolTabStrip1.Size = new System.Drawing.Size(200, 574);
+            this.toolTabStrip1.TabIndex = 4;
+            this.toolTabStrip1.TabStop = false;
             // 
             // documentContainer
             // 
@@ -251,6 +267,7 @@
             this.radRibbonBarButtonGroup1});
             this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
             this.radRibbonBarGroup1.Text = "New";
+            this.radRibbonBarGroup1.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
             // radRibbonBarButtonGroup1
             // 
@@ -297,9 +314,10 @@
             this.btnLoad.Image = global::LogViewer.Properties.Resources.blackLoadFile;
             this.btnLoad.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Text = "Load New";
+            this.btnLoad.Text = "Load in Tab";
             this.btnLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLoad.TextWrap = true;
+            this.btnLoad.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // radRibbonBarButtonGroup5
@@ -406,10 +424,10 @@
             // 
             this.documentWindow1.Controls.Add(this.radPageControl1);
             this.documentWindow1.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.documentWindow1.Location = new System.Drawing.Point(6, 29);
+            this.documentWindow1.Location = new System.Drawing.Point(6, 27);
             this.documentWindow1.Name = "documentWindow1";
             this.documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.documentWindow1.Size = new System.Drawing.Size(977, 555);
+            this.documentWindow1.Size = new System.Drawing.Size(977, 557);
             this.documentWindow1.Text = "documentWindow1";
             // 
             // radPageControl1
@@ -421,23 +439,8 @@
             this.radPageControl1.FilePath = "{file path}";
             this.radPageControl1.Location = new System.Drawing.Point(-3, 3);
             this.radPageControl1.Name = "radPageControl1";
-            this.radPageControl1.Size = new System.Drawing.Size(914, 631);
+            this.radPageControl1.Size = new System.Drawing.Size(914, 633);
             this.radPageControl1.TabIndex = 0;
-            // 
-            // toolTabStrip1
-            // 
-            this.toolTabStrip1.CanUpdateChildIndex = true;
-            this.toolTabStrip1.Controls.Add(this.wSavedLogs);
-            this.toolTabStrip1.Location = new System.Drawing.Point(5, 5);
-            this.toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(200, 574);
-            this.toolTabStrip1.TabIndex = 4;
-            this.toolTabStrip1.TabStop = false;
             // 
             // RadRibbonForm
             // 
@@ -463,13 +466,13 @@
             this.radDock.ResumeLayout(false);
             this.wSavedLogs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lstSavedLogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
+            this.toolTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar)).EndInit();
             this.documentWindow1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
-            this.toolTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

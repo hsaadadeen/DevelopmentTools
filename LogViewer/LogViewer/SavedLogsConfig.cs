@@ -52,6 +52,16 @@ namespace LogViewer
         {
             return SavedLogsDic.FirstOrDefault(keyValuePair => string.Format(keyValuePair.Value.ToLower(), DateTime.Now) == path.ToLower()).Key;
         }
+
+        public static int SavedLogsIndexOf(string key)
+        {
+            for (int i = 0; i < SavedLogsDic.Count; i++)
+            {
+                if (SavedLogsDic.ElementAt(i).Key == key)
+                    return i;
+            }
+            return -1;
+        }
     }
 
     public class SavedLogsConfigSection : ConfigurationSection

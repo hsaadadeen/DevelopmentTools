@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using LogViewer.Properties;
 using Telerik.WinControls;
+using Telerik.WinControls.Data;
 using Telerik.WinControls.UI;
 using Telerik.WinControls.UI.Docking;
 
@@ -35,8 +35,9 @@ namespace LogViewer
             {
                 lstSavedLogs.Items.Add(new RadListDataItem(pair.Key, pair.Value));
             }
+            lstSavedLogs.SelectedIndex = -1;
 
-            AddNewWindow();
+            //AddNewTab();
         }
 
         private void LoadIcons()
@@ -68,10 +69,10 @@ namespace LogViewer
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            AddNewWindow();
+            AddNewTab();
         }
 
-        private void AddNewWindow()
+        private DockWindow AddNewTab()
         {
             DocumentWindow docWindow = new DocumentWindow("Log File " + ++_newDocument);
             RadPageControl pageControl = new RadPageControl();
@@ -82,41 +83,61 @@ namespace LogViewer
             pageControl.Size = docWindow.Size;
             pageControl.AutoRefreshEnabled = chkAutoRefresh.Checked;
             radDock.ActiveWindow = docWindow;
+
+            return docWindow;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            LoadFile();
+            OpenFile(addTab: false);
         }
 
         private void btnLoadNew_Click(object sender, EventArgs e)
         {
-            AddNewWindow();
-            LoadFile();
+            OpenFile(addTab: true);
         }
 
-        private void LoadFile()
+        private void OpenFile(bool addTab)
         {
             DialogResult openDialogResult = openFileDialog.ShowDialog();
             if (openDialogResult == DialogResult.OK)
             {
-                RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
-                if (page != null)
+                radDock.ActiveWindow.Text = SavedLogsLoader.SavedLogsKeyOf(openFileDialog.FileName);
+                var opened = radDock.GetWindow<DocumentWindow>(radDock.ActiveWindow.Text);
+                if (opened != null)
                 {
-                    page.FilePath = openFileDialog.FileName;
-                    page.LoadGrid();
-                    lblFileName.Text = page.FilePath;
-                    lblLinesCount.Text = Resources.statusbar_lines + page.LinesCount;
-
-
-                    if (SavedLogsLoader.SavedLogsContains(openFileDialog.FileName))
-                    {
-                        radDock.ActiveWindow.Text = SavedLogsLoader.SavedLogsKeyOf(openFileDialog.FileName);
-                    }
-                    else if (!radDock.ActiveWindow.Text.Contains(Resources.UnsavedFileIndicator))
-                        radDock.ActiveWindow.Text += Resources.UnsavedFileIndicator;
+                    radDock.ActiveWindow = opened;
+                    return;
                 }
+
+                if (addTab)
+                    AddNewTab();
+
+                LoadGrid(radDock.ActiveWindow, openFileDialog.FileName, true);
+                RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
+
+                if (page != null) lblLinesCount.Text = Resources.statusbar_lines + page.LinesCount;
             }
+        }
+
+        private void LoadGrid(DockWindow document, string filePath, bool autoRefreshEnabled)
+        {
+            RadPageControl page = document.Controls["RadPageControl"] as RadPageControl;
+
+            if (page == null) return;
+            page.AutoRefreshEnabled = autoRefreshEnabled;
+            page.FilePath = filePath;
+            page.LoadGrid();
+            lblFileName.Text = page.FilePath;
+
+            if (SavedLogsLoader.SavedLogsContains(filePath))
+            {
+                radDock.ActiveWindow.Text = SavedLogsLoader.SavedLogsKeyOf(filePath);
+            }
+            else if (!radDock.ActiveWindow.Text.Contains(Resources.UnsavedFileIndicator))
+                radDock.ActiveWindow.Text += Resources.UnsavedFileIndicator;
+
+            document.Name = document.Text;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -127,11 +148,14 @@ namespace LogViewer
 
         private void radDock_ActiveWindowChanged(object sender, DockWindowEventArgs e)
         {
-            if (e.DockWindow == null) return;
-            RadPageControl page = e.DockWindow.Controls["RadPageControl"] as RadPageControl;
+            RadPageControl page = e.DockWindow?.Controls["RadPageControl"] as RadPageControl;
             if (page == null) return;
             lblFileName.Text = page.FilePath;
             lblLinesCount.Text = Resources.statusbar_lines + page.LinesCount;
+
+            int index = SavedLogsLoader.SavedLogsIndexOf(e.DockWindow.Name);
+            if (index != -1)
+                lstSavedLogs.SelectedIndex = index;
 
             page.LogLinesGrid.CurrentRowChanged += grdLogs_CurrentRowChanged;
             page.LogLinesGrid.DataBindingComplete += grdLogs_CountUpdated;
@@ -160,8 +184,7 @@ namespace LogViewer
                 RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
                 if (page != null)
                 {
-                    frmSavePath frm = new frmSavePath(page.FilePath);
-                    frm.Text = radDock.ActiveWindow.Text;
+                    frmSavePath frm = new frmSavePath(page.FilePath) { Text = radDock.ActiveWindow.Text };
                     var result = frm.ShowDialog();
                     if (result == DialogResult.OK)
                     {
@@ -205,13 +228,13 @@ namespace LogViewer
 
         private void radDock_DockWindowClosing(object sender, DockWindowCancelEventArgs e)
         {
+            lstSavedLogs.SelectedIndex = -1;
             if (e.NewWindow.Text.Contains("*"))
             {
                 RadPageControl pageControl = e.NewWindow.Controls["RadPageControl"] as RadPageControl;
                 if (pageControl != null)
                 {
-                    frmSavePath frm = new frmSavePath(pageControl.FilePath);
-                    frm.Text = e.NewWindow.Text;
+                    frmSavePath frm = new frmSavePath(pageControl.FilePath) { Text = e.NewWindow.Text };
                     frm.ShowDialog();
                     frm.Dispose();
                 }
@@ -220,16 +243,62 @@ namespace LogViewer
 
         private void lstSavedLogs_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            AddNewWindow();
+            if (lstSavedLogs.SelectedItem == null) return;
+
+            DockWindow document = radDock.GetWindow<DockWindow>(lstSavedLogs.SelectedItem.Text);
+
+            if (document != null)
+            {
+                if (document.TabStrip.TabStripElement.PreviewItem == document.TabStripItem)
+                {
+                    document.TabStrip.TabStripElement.PreviewItem = null;
+                }
+                radDock.ActiveWindow = document;
+                return;
+            }
+
+            document = AddNewTab();
 
             RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
-            if (lstSavedLogs.SelectedItem == null || page == null) return;
+            if (page == null) return;
 
-            page.FilePath = lstSavedLogs.SelectedItem.Value.ToString();
-            page.LoadGrid();
-            radDock.ActiveWindow.Text = lstSavedLogs.SelectedItem.Text;
-            lblFileName.Text = page.FilePath;
+            LoadGrid(document, lstSavedLogs.SelectedItem.Value.ToString(), true);
             lblLinesCount.Text = Resources.statusbar_lines + page.LinesCount;
+        }
+
+        private void lstSavedLogs_SelectedItemsChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            //if(e.NewItems == null || e.NewItems.Count <= 0) return;
+            //RadListDataItem selectedItem = e.NewItems[0] as RadListDataItem;
+            //if (selectedItem != null)
+            //{
+            //    DocumentWindow document = radDock.GetWindow<DocumentWindow>(selectedItem.Text);
+            //    if (document == null)
+            //    {
+            //        document = AddNewTab();
+            //        LoadGrid(document, selectedItem.Value.ToString(), autoRefreshEnabled: false);
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+
+            //    if (document.TabStrip.TabStripElement.PreviewItem == document.TabStripItem)
+            //    {
+            //        return;
+            //    }
+
+            //    foreach (DocumentWindow dw in radDock.GetWindows<DocumentWindow>())
+            //    {
+            //        RadPageViewStripElement tabStrip = dw.TabStrip.TabStripElement;
+            //        if (tabStrip.PreviewItem == null) continue;
+            //        radDock.CloseWindow((DockWindow)((TabStripItem)tabStrip.PreviewItem).TabPanel);
+            //        tabStrip.PreviewItem = null;
+            //    }
+
+            //    document.TabStrip.TabStripElement.PreviewItem = document.TabStripItem;
+            //    radDock.ActiveWindow = document;
+            //}
         }
     }
 }
