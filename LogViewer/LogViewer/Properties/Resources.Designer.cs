@@ -73,6 +73,16 @@ namespace LogViewer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blackLoadFile {
+            get {
+                object obj = ResourceManager.GetObject("blackLoadFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blackNewTab {
             get {
                 object obj = ResourceManager.GetObject("blackNewTab", resourceCulture);
@@ -117,6 +127,15 @@ namespace LogViewer.Properties {
             get {
                 object obj = ResourceManager.GetObject("blackSaveFile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AllEvents-{0:yyyy-MM-dd}.txt.
+        /// </summary>
+        internal static string DefaultFileNameFormat {
+            get {
+                return ResourceManager.GetString("DefaultFileNameFormat", resourceCulture);
             }
         }
         
@@ -201,6 +220,16 @@ namespace LogViewer.Properties {
         internal static System.Drawing.Bitmap whiteExit {
             get {
                 object obj = ResourceManager.GetObject("whiteExit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap whiteLoadFile {
+            get {
+                object obj = ResourceManager.GetObject("whiteLoadFile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

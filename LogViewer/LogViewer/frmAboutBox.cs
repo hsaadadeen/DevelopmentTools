@@ -110,5 +110,10 @@ namespace LogViewer
             }
         }
         #endregion
+
+        private void okRadButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

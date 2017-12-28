@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using LogViewer.Properties;
 using Telerik.WinControls;
@@ -20,7 +21,7 @@ namespace LogViewer
         {
             Setupcontrols();
 
-            LoadImages();
+            LoadIcons();
         }
 
         private void Setupcontrols()
@@ -30,15 +31,21 @@ namespace LogViewer
 
             SavedLogsLoader.LoadSavedLogsPaths();
 
+            foreach (var pair in SavedLogsLoader.SavedLogsDic)
+            {
+                lstSavedLogs.Items.Add(new RadListDataItem(pair.Key, pair.Value));
+            }
+
             AddNewWindow();
         }
 
-        private void LoadImages()
+        private void LoadIcons()
         {
             if (ThemeResolutionService.ApplicationThemeName == Resources.VisualStudio2012LightTheme)
             {
                 btnNew.Image = Resources.blackNewTab;
-                btnLoad.Image = Resources.blackOpenFile;
+                btnLoad.Image = Resources.blackLoadFile;
+                btnLoadNew.Image = Resources.blackOpenFile;
                 btnSave.Image = Resources.blackSaveFile;
                 btnRefresh.Image = Resources.blackRefreshFile;
 
@@ -49,7 +56,8 @@ namespace LogViewer
             else if (ThemeResolutionService.ApplicationThemeName == Resources.VisualStudio2012DarkTheme)
             {
                 btnNew.Image = Resources.whiteNewTab;
-                btnLoad.Image = Resources.whiteOpenFile;
+                btnLoad.Image = Resources.whiteLoadFile;
+                btnLoadNew.Image = Resources.whiteOpenFile;
                 btnSave.Image = Resources.whiteSaveFile;
                 btnRefresh.Image = Resources.whiteRefreshFile;
 
@@ -78,6 +86,17 @@ namespace LogViewer
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            LoadFile();
+        }
+
+        private void btnLoadNew_Click(object sender, EventArgs e)
+        {
+            AddNewWindow();
+            LoadFile();
+        }
+
+        private void LoadFile()
+        {
             DialogResult openDialogResult = openFileDialog.ShowDialog();
             if (openDialogResult == DialogResult.OK)
             {
@@ -88,11 +107,15 @@ namespace LogViewer
                     page.LoadGrid();
                     lblFileName.Text = page.FilePath;
                     lblLinesCount.Text = Resources.statusbar_lines + page.LinesCount;
-                }
 
-                if (SavedLogsLoader.SavedLogsDic.ContainsValue(SavedLogsLoader.GetConfigPath(openFileDialog.FileName))) return;
-                if (!radDock.ActiveWindow.Text.Contains(Resources.UnsavedFileIndicator))
-                    radDock.ActiveWindow.Text += Resources.UnsavedFileIndicator;
+
+                    if (SavedLogsLoader.SavedLogsContains(openFileDialog.FileName))
+                    {
+                        radDock.ActiveWindow.Text = SavedLogsLoader.SavedLogsKeyOf(openFileDialog.FileName);
+                    }
+                    else if (!radDock.ActiveWindow.Text.Contains(Resources.UnsavedFileIndicator))
+                        radDock.ActiveWindow.Text += Resources.UnsavedFileIndicator;
+                }
             }
         }
 
@@ -137,11 +160,15 @@ namespace LogViewer
                 RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
                 if (page != null)
                 {
-                    frmSavePath frm =
-                        new frmSavePath(page.FilePath);
+                    frmSavePath frm = new frmSavePath(page.FilePath);
+                    frm.Text = radDock.ActiveWindow.Text;
                     var result = frm.ShowDialog();
                     if (result == DialogResult.OK)
-                        radDock.ActiveWindow.Text = radDock.ActiveWindow.Text.Replace("*", "");
+                    {
+                        radDock.ActiveWindow.Text = frm.Key;
+                        lstSavedLogs.Items.Add(new RadListDataItem(frm.Key, SavedLogsLoader.SavedLogsDic[frm.Key]));
+                    }
+                    frm.Dispose();
                 }
             }
         }
@@ -160,8 +187,9 @@ namespace LogViewer
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 ThemeResolutionService.ApplicationThemeName = Settings.Default.ThemeName;
-                LoadImages();
+                LoadIcons();
             }
+            frm.Dispose();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -183,9 +211,25 @@ namespace LogViewer
                 if (pageControl != null)
                 {
                     frmSavePath frm = new frmSavePath(pageControl.FilePath);
+                    frm.Text = e.NewWindow.Text;
                     frm.ShowDialog();
+                    frm.Dispose();
                 }
             }
+        }
+
+        private void lstSavedLogs_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            AddNewWindow();
+
+            RadPageControl page = radDock.ActiveWindow.Controls["RadPageControl"] as RadPageControl;
+            if (lstSavedLogs.SelectedItem == null || page == null) return;
+
+            page.FilePath = lstSavedLogs.SelectedItem.Value.ToString();
+            page.LoadGrid();
+            radDock.ActiveWindow.Text = lstSavedLogs.SelectedItem.Text;
+            lblFileName.Text = page.FilePath;
+            lblLinesCount.Text = Resources.statusbar_lines + page.LinesCount;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using LogViewer.BackEnd;
 
 namespace LogViewer
 {
@@ -37,9 +38,19 @@ namespace LogViewer
             ConfigurationManager.RefreshSection("SavedLogsPaths");
         }
 
-        public static string GetConfigPath(string fileName)
+        public static string GetConfigPath(string fileName, string fileNameFormat)
         {
             return Path.Combine(Path.GetDirectoryName(fileName), fileName);
+        }
+
+        public static bool SavedLogsContains(string path)
+        {
+            return SavedLogsDic.Any(keyValuePair => string.Format(keyValuePair.Value.ToLower(), DateTime.Now) == path.ToLower());
+        }
+
+        public static string SavedLogsKeyOf(string path)
+        {
+            return SavedLogsDic.FirstOrDefault(keyValuePair => string.Format(keyValuePair.Value.ToLower(), DateTime.Now) == path.ToLower()).Key;
         }
     }
 

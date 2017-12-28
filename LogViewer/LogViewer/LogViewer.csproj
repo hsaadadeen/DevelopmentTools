@@ -189,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="log.ico" />
+    <None Include="Resources\whiteLoadFile.png" />
     <None Include="Resources\whiteOptions.png" />
     <None Include="Resources\whiteExit.png" />
     <None Include="Resources\whiteSaveFile.png" />
@@ -202,6 +203,7 @@
     <None Include="Resources\blackSaveFile.png" />
     <None Include="Resources\blackExit.png" />
     <None Include="Resources\blackOptions.png" />
+    <None Include="Resources\blackLoadFile.png" />
     <Content Include="Resources\log.ico" />
     <None Include="Resources\log.png" />
   </ItemGroup>

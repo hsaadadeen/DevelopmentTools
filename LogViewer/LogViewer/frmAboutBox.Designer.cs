@@ -173,15 +173,18 @@
             this.okRadButton.Size = new System.Drawing.Size(75, 23);
             this.okRadButton.TabIndex = 24;
             this.okRadButton.Text = "&OK";
+            this.okRadButton.Click += new System.EventHandler(this.okRadButton_Click);
             // 
             // frmAboutBox
             // 
             this.AcceptButton = this.okRadButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.okRadButton;
             this.ClientSize = new System.Drawing.Size(406, 283);
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAboutBox";

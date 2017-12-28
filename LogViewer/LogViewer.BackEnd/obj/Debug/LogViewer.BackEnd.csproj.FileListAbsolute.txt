@@ -5,6 +5,5 @@ C:\Users\hsaadadeen\Documents\Visual Studio 2017\Projects\LogViewer\LogViewer.Ba
 C:\Users\hsaadadeen\Documents\Visual Studio 2017\Projects\LogViewer\LogViewer.BackEnd\obj\Debug\LogViewer.BackEnd.pdb
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer.BackEnd\bin\Debug\LogViewer.BackEnd.dll
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer.BackEnd\bin\Debug\LogViewer.BackEnd.pdb
-C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer.BackEnd\obj\Debug\LogViewer.BackEnd.csprojResolveAssemblyReference.cache
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer.BackEnd\obj\Debug\LogViewer.BackEnd.dll
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer.BackEnd\obj\Debug\LogViewer.BackEnd.pdb
