@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
+using System.IO;
 using System.Reflection;
+using Telerik.WinControls.UI;
 
 namespace LogViewer
 {
-    partial class frmAboutBox : Telerik.WinControls.UI.RadForm
+    partial class frmAboutBox : RadForm
     {
         public frmAboutBox()
         {
@@ -44,7 +42,7 @@ namespace LogViewer
                         return titleAttribute.Title;
                 }
                 // If there was no Title attribute, or if the Title attribute was the empty string, return the .exe name
-                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+                return Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
             }
         }
 

@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using Telerik.WinControls;
+using LogViewer.Properties;
+using Telerik.WinControls.UI;
 
 namespace LogViewer
 {
-    public partial class frmOptions : Telerik.WinControls.UI.RadForm
+    public partial class frmOptions : RadForm
     {
-        private string[] themes = new[] { "VisualStudio2012Light", "VisualStudio2012Dark" };
+        private readonly string[] _themes = new[] { Resources.VisualStudio2012LightTheme, Resources.VisualStudio2012DarkTheme };
         public frmOptions()
         {
             InitializeComponent();
@@ -19,16 +15,16 @@ namespace LogViewer
 
         private void frmOptions_Load(object sender, EventArgs e)
         {
-            ddlTheme.Items.AddRange(themes);
-            ddlTheme.SelectedIndex = Array.IndexOf(themes, Properties.Settings.Default.ThemeName);
+            ddlTheme.Items.AddRange(_themes);
+            ddlTheme.SelectedIndex = Array.IndexOf(_themes, Settings.Default.ThemeName);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.ThemeName = themes[ddlTheme.SelectedIndex];
-            this.DialogResult = DialogResult.OK;
-            Properties.Settings.Default.Save();
-            this.Close();
+            Settings.Default.ThemeName = _themes[ddlTheme.SelectedIndex];
+            DialogResult = DialogResult.OK;
+            Settings.Default.Save();
+            Close();
         }
     }
 }

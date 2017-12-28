@@ -45,3 +45,7 @@ C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\Log
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\Telerik.WinControls.Themes.VisualStudio2012Dark.dll
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.frmAboutBox.resources
 C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.frmOptions.resources
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\LogViewer.exe.manifest
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\bin\Debug\LogViewer.application
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.exe.manifest
+C:\Users\hsaadadeen\Source\Repos\DevelopmentTools\DevelopmentTools\LogViewer\LogViewer\obj\Debug\LogViewer.application

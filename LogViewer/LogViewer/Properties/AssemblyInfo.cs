@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LogViewer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Log Viewer")]
+[assembly: AssemblyDescription("https://github.com/hsaadadeen/DevelopmentTools")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("LogViewer")]

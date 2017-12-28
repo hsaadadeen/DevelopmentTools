@@ -63,6 +63,66 @@ namespace LogViewer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blackExit {
+            get {
+                object obj = ResourceManager.GetObject("blackExit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blackNewTab {
+            get {
+                object obj = ResourceManager.GetObject("blackNewTab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blackOpenFile {
+            get {
+                object obj = ResourceManager.GetObject("blackOpenFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blackOptions {
+            get {
+                object obj = ResourceManager.GetObject("blackOptions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blackRefreshFile {
+            get {
+                object obj = ResourceManager.GetObject("blackRefreshFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blackSaveFile {
+            get {
+                object obj = ResourceManager.GetObject("blackSaveFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap log {
             get {
                 object obj = ResourceManager.GetObject("log", resourceCulture);
@@ -91,11 +151,56 @@ namespace LogViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ln: .
+        /// </summary>
+        internal static string statusbar_lineIndex {
+            get {
+                return ResourceManager.GetString("statusbar_lineIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lines: .
+        /// </summary>
+        internal static string statusbar_lines {
+            get {
+                return ResourceManager.GetString("statusbar_lines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *.
+        /// </summary>
+        internal static string UnsavedFileIndicator {
+            get {
+                return ResourceManager.GetString("UnsavedFileIndicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VisualStudio2012Dark.
+        /// </summary>
+        internal static string VisualStudio2012DarkTheme {
+            get {
+                return ResourceManager.GetString("VisualStudio2012DarkTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VisualStudio2012Light.
+        /// </summary>
+        internal static string VisualStudio2012LightTheme {
+            get {
+                return ResourceManager.GetString("VisualStudio2012LightTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_file {
+        internal static System.Drawing.Bitmap whiteExit {
             get {
-                object obj = ResourceManager.GetObject("new-file", resourceCulture);
+                object obj = ResourceManager.GetObject("whiteExit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +208,9 @@ namespace LogViewer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap open_file {
+        internal static System.Drawing.Bitmap whiteNewTab {
             get {
-                object obj = ResourceManager.GetObject("open-file", resourceCulture);
+                object obj = ResourceManager.GetObject("whiteNewTab", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +218,9 @@ namespace LogViewer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap refresh_file {
+        internal static System.Drawing.Bitmap whiteOpenFile {
             get {
-                object obj = ResourceManager.GetObject("refresh-file", resourceCulture);
+                object obj = ResourceManager.GetObject("whiteOpenFile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +228,9 @@ namespace LogViewer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap save {
+        internal static System.Drawing.Bitmap whiteOptions {
             get {
-                object obj = ResourceManager.GetObject("save", resourceCulture);
+                object obj = ResourceManager.GetObject("whiteOptions", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +238,19 @@ namespace LogViewer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap settings {
+        internal static System.Drawing.Bitmap whiteRefreshFile {
             get {
-                object obj = ResourceManager.GetObject("settings", resourceCulture);
+                object obj = ResourceManager.GetObject("whiteRefreshFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap whiteSaveFile {
+            get {
+                object obj = ResourceManager.GetObject("whiteSaveFile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">VisualStudio2012Light</Value>
     </Setting>
     <Setting Name="AutoRefreshEnabled" Type="System.String" Scope="User">
-      <Value Profile="(Default)">false</Value>
+      <Value Profile="(Default)">true</Value>
     </Setting>
   </Settings>
 </SettingsFile>

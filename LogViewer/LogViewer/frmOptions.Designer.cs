@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.ddlTheme = new Telerik.WinControls.UI.RadDropDownList();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
@@ -70,6 +71,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.ddlTheme);
             this.Controls.Add(this.radLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOptions";
             // 
             // 

@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace LogViewer
 {
-    public partial class frmSavePath : Telerik.WinControls.UI.RadForm
+    public partial class frmSavePath : RadForm
     {
         public frmSavePath(string path)
         {
@@ -26,8 +21,8 @@ namespace LogViewer
                 SavedLogsLoader.SavedLogsDic.Add(txtKey.Text, SavedLogsLoader.GetConfigPath(txtPath.Text));
                 SavedLogsLoader.SaveLogPath(txtKey.Text);
                 RadMessageBox.Show("New path saved", "Saved Successfully", MessageBoxButtons.OK, RadMessageIcon.Info);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                DialogResult = DialogResult.OK;
+                Close();
             }
             catch (Exception ex)
             {
