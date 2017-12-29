@@ -166,7 +166,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstSavedLogs.Location = new System.Drawing.Point(6, 3);
             this.lstSavedLogs.Name = "lstSavedLogs";
-            this.lstSavedLogs.Size = new System.Drawing.Size(183, 560);
+            this.lstSavedLogs.Size = new System.Drawing.Size(177, 578);
             this.lstSavedLogs.TabIndex = 0;
             this.lstSavedLogs.Text = "radListControl1";
             this.lstSavedLogs.SelectedItemsChanged += new Telerik.WinControls.Data.NotifyCollectionChangedEventHandler(this.lstSavedLogs_SelectedItemsChanged);
@@ -317,7 +317,6 @@
             this.btnLoad.Text = "Load in Tab";
             this.btnLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLoad.TextWrap = true;
-            this.btnLoad.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // radRibbonBarButtonGroup5

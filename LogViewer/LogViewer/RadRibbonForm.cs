@@ -36,8 +36,6 @@ namespace LogViewer
                 lstSavedLogs.Items.Add(new RadListDataItem(pair.Key, pair.Value));
             }
             lstSavedLogs.SelectedIndex = -1;
-
-            //AddNewTab();
         }
 
         private void LoadIcons()
@@ -189,6 +187,7 @@ namespace LogViewer
                     if (result == DialogResult.OK)
                     {
                         radDock.ActiveWindow.Text = frm.Key;
+                        radDock.ActiveWindow.Name = frm.Key;
                         lstSavedLogs.Items.Add(new RadListDataItem(frm.Key, SavedLogsLoader.SavedLogsDic[frm.Key]));
                     }
                     frm.Dispose();
