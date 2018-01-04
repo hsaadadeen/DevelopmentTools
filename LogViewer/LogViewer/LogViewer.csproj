@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>log.ico</ApplicationIcon>
+    <ApplicationIcon>logcabin.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3CACE195ECC641BF9DB5CCDF857AB1455263DFC3</ManifestCertificateThumbprint>
@@ -189,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="log.ico" />
+    <None Include="Resources\logcabin-start-menu.png" />
     <None Include="Resources\whiteLoadFile.png" />
     <None Include="Resources\whiteOptions.png" />
     <None Include="Resources\whiteExit.png" />
@@ -204,6 +205,7 @@
     <None Include="Resources\blackExit.png" />
     <None Include="Resources\blackOptions.png" />
     <None Include="Resources\blackLoadFile.png" />
+    <Content Include="logcabin.ico" />
     <Content Include="Resources\log.ico" />
     <None Include="Resources\log.png" />
   </ItemGroup>

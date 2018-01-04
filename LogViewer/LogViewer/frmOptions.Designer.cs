@@ -77,7 +77,7 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "frmOptions";
+            this.Text = "Options";
             this.Load += new System.EventHandler(this.frmOptions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlTheme)).EndInit();

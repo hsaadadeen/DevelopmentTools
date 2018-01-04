@@ -117,74 +117,68 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="statusbar_lineIndex" xml:space="preserve">
-    <value>ln: </value>
-  </data>
-  <data name="statusbar_lines" xml:space="preserve">
-    <value>lines: </value>
-  </data>
-  <data name="UnsavedFileIndicator" xml:space="preserve">
-    <value>*</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="log" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\log.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="log-start-menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\log-start-menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="log1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\log.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blackNewTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blackNewTab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blackOpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blackOpenFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blackRefreshFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blackRefreshFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blackSaveFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blackSaveFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="whiteLoadFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\whiteLoadFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="whiteNewTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\whiteNewTab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="whiteOpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\whiteOpenFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DefaultFileNameFormat" xml:space="preserve">
+    <value>AllEvents-{0:yyyy-MM-dd}.txt</value>
   </data>
-  <data name="whiteRefreshFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\whiteRefreshFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="whiteSaveFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\whiteSaveFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blackExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blackExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blackOptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blackOptions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="whiteExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\whiteExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="whiteOptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\whiteOptions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blackNewTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blackNewTab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VisualStudio2012DarkTheme" xml:space="preserve">
     <value>VisualStudio2012Dark</value>
   </data>
+  <data name="statusbar_lineIndex" xml:space="preserve">
+    <value>ln: </value>
+  </data>
+  <data name="blackOpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blackOpenFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="whiteSaveFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\whiteSaveFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="whiteOptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\whiteOptions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UnsavedFileIndicator" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="blackRefreshFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blackRefreshFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="whiteExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\whiteExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="whiteOpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\whiteOpenFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="VisualStudio2012LightTheme" xml:space="preserve">
     <value>VisualStudio2012Light</value>
   </data>
-  <data name="DefaultFileNameFormat" xml:space="preserve">
-    <value>AllEvents-{0:yyyy-MM-dd}.txt</value>
+  <data name="whiteRefreshFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\whiteRefreshFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blackLoadFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blackLoadFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="whiteLoadFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\whiteLoadFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blackOptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blackOptions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statusbar_lines" xml:space="preserve">
+    <value>lines: </value>
+  </data>
+  <data name="blackSaveFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blackSaveFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blackExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blackExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logcabin-start-menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logcabin-start-menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

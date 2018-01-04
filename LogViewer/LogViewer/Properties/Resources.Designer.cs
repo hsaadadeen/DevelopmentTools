@@ -142,29 +142,9 @@ namespace LogViewer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap log {
+        internal static System.Drawing.Bitmap logcabin_start_menu {
             get {
-                object obj = ResourceManager.GetObject("log", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap log_start_menu {
-            get {
-                object obj = ResourceManager.GetObject("log-start-menu", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap log1 {
-            get {
-                object obj = ResourceManager.GetObject("log1", resourceCulture);
+                object obj = ResourceManager.GetObject("logcabin-start-menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
