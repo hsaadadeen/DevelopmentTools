@@ -167,6 +167,7 @@
             this.lstSavedLogs.Location = new System.Drawing.Point(6, 3);
             this.lstSavedLogs.Name = "lstSavedLogs";
             this.lstSavedLogs.Size = new System.Drawing.Size(189, 542);
+            this.lstSavedLogs.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
             this.lstSavedLogs.TabIndex = 0;
             this.lstSavedLogs.Text = "radListControl1";
             this.lstSavedLogs.SelectedItemsChanged += new Telerik.WinControls.Data.NotifyCollectionChangedEventHandler(this.lstSavedLogs_SelectedItemsChanged);
@@ -217,10 +218,10 @@
             // 
             this.documentWindow1.Controls.Add(this.radPageControl1);
             this.documentWindow1.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.documentWindow1.Location = new System.Drawing.Point(4, 4);
+            this.documentWindow1.Location = new System.Drawing.Point(6, 6);
             this.documentWindow1.Name = "documentWindow1";
             this.documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.documentWindow1.Size = new System.Drawing.Size(981, 582);
+            this.documentWindow1.Size = new System.Drawing.Size(977, 578);
             this.documentWindow1.Text = "documentWindow1";
             // 
             // radPageControl1
@@ -232,7 +233,7 @@
             this.radPageControl1.FilePath = "{file path}";
             this.radPageControl1.Location = new System.Drawing.Point(-3, 3);
             this.radPageControl1.Name = "radPageControl1";
-            this.radPageControl1.Size = new System.Drawing.Size(918, 658);
+            this.radPageControl1.Size = new System.Drawing.Size(914, 654);
             this.radPageControl1.TabIndex = 0;
             // 
             // openFileDialog

@@ -50,7 +50,9 @@ namespace LogViewer
 
         public static string SavedLogsKeyOf(string path)
         {
-            return SavedLogsDic.FirstOrDefault(keyValuePair => string.Format(keyValuePair.Value.ToLower(), DateTime.Now) == path.ToLower()).Key;
+            var key = SavedLogsDic.FirstOrDefault(keyValuePair => string.Format(keyValuePair.Value.ToLower(), DateTime.Now) == path.ToLower()).Key;
+            if(key == null) return string.Empty;
+            return key;
         }
 
         public static int SavedLogsIndexOf(string key)

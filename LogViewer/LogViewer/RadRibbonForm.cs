@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using LogViewer.Properties;
 using Telerik.WinControls;
@@ -100,8 +101,7 @@ namespace LogViewer
             DialogResult openDialogResult = openFileDialog.ShowDialog();
             if (openDialogResult == DialogResult.OK)
             {
-                radDock.ActiveWindow.Text = SavedLogsLoader.SavedLogsKeyOf(openFileDialog.FileName);
-                var opened = radDock.GetWindow<DocumentWindow>(radDock.ActiveWindow.Text);
+                var opened = radDock.GetWindow<DocumentWindow>(SavedLogsLoader.SavedLogsKeyOf(openFileDialog.FileName));
                 if (opened != null)
                 {
                     radDock.ActiveWindow = opened;
@@ -153,7 +153,7 @@ namespace LogViewer
 
             int index = SavedLogsLoader.SavedLogsIndexOf(e.DockWindow.Name);
             if (index != -1)
-                lstSavedLogs.SelectedIndex = index;
+                lstSavedLogs.SelectedItem = lstSavedLogs.Items.FirstOrDefault(i => i.Text == e.DockWindow.Name);
 
             page.LogLinesGrid.CurrentRowChanged += grdLogs_CurrentRowChanged;
             page.LogLinesGrid.DataBindingComplete += grdLogs_CountUpdated;
