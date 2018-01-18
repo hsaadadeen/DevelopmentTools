@@ -25,7 +25,7 @@ namespace LogViewer
             try
             {
                 SavedLogsLoader.SavedLogsDic.Add(txtKey.Text, SavedLogsLoader.GetConfigPath(txtPath.Text, txtFileNameFormat.Text));
-                SavedLogsLoader.SaveLogPath(txtKey.Text);
+                SavedLogsLoader.SaveLogPath(txtKey.Text, txtFileNameFormat.Text);
                 RadMessageBox.Show("New path saved", "Saved Successfully", MessageBoxButtons.OK, RadMessageIcon.Info);
                 DialogResult = DialogResult.OK;
                 _key = txtKey.Text;

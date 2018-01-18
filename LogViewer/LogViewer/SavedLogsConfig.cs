@@ -23,14 +23,15 @@ namespace LogViewer
                 SavedLogsDic.Add(log.Key, String.Format(log.Path, DateTime.Now));
         }
 
-        public static void SaveLogPath(string key)
+        public static void SaveLogPath(string key, string fileFormat)
         {
+            string path = SavedLogsDic[key].Replace(Path.GetFileName(SavedLogsDic[key]), fileFormat);
             var xmlDoc = new XmlDocument();
             xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
 
             var node = xmlDoc.CreateElement("add");
             node.SetAttribute("key", key);
-            node.SetAttribute("path", SavedLogsDic[key]);
+            node.SetAttribute("path", path);
 
             xmlDoc.SelectSingleNode("//SavedLogsPaths").AppendChild(node);
             xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
